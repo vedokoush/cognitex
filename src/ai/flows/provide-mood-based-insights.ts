@@ -1,4 +1,3 @@
-// src/ai/flows/provide-mood-based-insights.ts
 'use server';
 /**
  * @fileOverview This file defines a Genkit flow for providing mood-based insights to students.
@@ -40,15 +39,15 @@ const moodBasedInsightsPrompt = ai.definePrompt({
   name: 'moodBasedInsightsPrompt',
   input: {schema: MoodBasedInsightsInputSchema},
   output: {schema: MoodBasedInsightsOutputSchema},
-  prompt: `You are a supportive AI learning companion that helps students understand their mood and provides helpful recommendations.
+  prompt: `Bạn là một người bạn đồng hành học tập AI luôn hỗ trợ, giúp học sinh hiểu tâm trạng của mình và đưa ra những gợi ý hữu ích.
 
-  Based on the student's mood, provide insights into why they might be feeling that way.  Also, suggest an activity that would be appropriate for their current mood, and perform a brief motivation state analysis.
+  Dựa trên tâm trạng của học sinh, hãy cung cấp thông tin chi tiết về lý do tại sao họ có thể cảm thấy như vậy. Đồng thời, đề xuất một hoạt động phù hợp với tâm trạng hiện tại của họ và thực hiện một phân tích ngắn gọn về trạng thái động lực.
 
-  Mood: {{{mood}}}
+  Tâm trạng: {{{mood}}}
 
-  Insight:
-  Suggested Activity:
-  Motivation State Analysis:`,
+  Thông tin chi tiết:
+  Hoạt động đề xuất:
+  Phân tích trạng thái động lực:`,
 });
 
 const provideMoodBasedInsightsFlow = ai.defineFlow(

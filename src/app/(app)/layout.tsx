@@ -29,17 +29,17 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
     {
       href: '/dashboard',
       icon: <LayoutDashboard />,
-      label: 'Dashboard',
+      label: 'Bảng điều khiển',
     },
     {
       href: '/mood-mirror',
       icon: <HeartHandshake />,
-      label: 'MindMirror',
+      label: 'Gương Thần',
     },
     {
       href: '/skill-quest',
       icon: <Puzzle />,
-      label: 'SkillQuest',
+      label: 'Nhiệm Vụ Kỹ Năng',
     },
   ];
 

@@ -43,9 +43,9 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 const onboardingSchema = z.object({
-  aiUsage: z.string({ required_error: 'Please select an option.' }),
-  learningTime: z.string({ required_error: 'Please select a duration.' }),
-  reflection: z.string({ required_error: 'Please select an option.' }),
+  aiUsage: z.string({ required_error: 'Vui lòng chọn một tùy chọn.' }),
+  learningTime: z.string({ required_error: 'Vui lòng chọn một khoảng thời gian.' }),
+  reflection: z.string({ required_error: 'Vui lòng chọn một tùy chọn.' }),
 });
 
 type OnboardingFormValues = z.infer<typeof onboardingSchema>;
@@ -53,27 +53,27 @@ type OnboardingFormValues = z.infer<typeof onboardingSchema>;
 const features = [
   {
     icon: <HeartHandshake className="h-10 w-10 text-primary" />,
-    title: 'MindMirror',
+    title: 'Gương Thần',
     description:
-      'Check in with your mood and get personalized support and activities. Reflect on your progress with our Emotion & Progress chart.',
+      'Kiểm tra tâm trạng của bạn và nhận hỗ trợ cũng như các hoạt động được cá nhân hóa. Suy ngẫm về sự tiến bộ của bạn với biểu đồ Cảm xúc & Tiến độ của chúng tôi.',
   },
   {
     icon: <Puzzle className="h-10 w-10 text-primary" />,
-    title: 'SkillQuest',
+    title: 'Nhiệm Vụ Kỹ Năng',
     description:
-      'Turn any subject into a fun Flashcard Battle. Gain XP, level up, and watch your skills grow with every correct answer.',
+      'Biến bất kỳ chủ đề nào thành một Trận chiến Flashcard vui nhộn. Tích lũy KN, lên cấp và xem kỹ năng của bạn phát triển sau mỗi câu trả lời đúng.',
   },
   {
     icon: <Target className="h-10 w-10 text-primary" />,
-    title: 'LearnPulse',
+    title: 'Nhịp Học',
     description:
-      "Your personal dashboard shows your Motivation Score, streaks, and skill growth, focusing on your journey without comparing you to others.",
+      "Bảng điều khiển cá nhân của bạn hiển thị Điểm Động lực, chuỗi ngày học và sự phát triển kỹ năng, tập trung vào hành trình của bạn mà không so sánh với người khác.",
   },
   {
     icon: <Sparkles className="h-10 w-10 text-primary" />,
-    title: 'Cogni Assistant',
+    title: 'Trợ lý Cogni',
     description:
-      'Your friendly AI buddy is here to help explain concepts, celebrate your wins, and give you a motivational boost whenever you need it.',
+      'Người bạn AI thân thiện của bạn ở đây để giúp giải thích các khái niệm, ăn mừng chiến thắng của bạn và tạo động lực cho bạn bất cứ khi nào bạn cần.',
   },
 ];
 
@@ -82,7 +82,7 @@ const testimonials = [
     id: 'testimonial-1',
     name: 'Alex Johnson',
     quote:
-      "CogniTex makes learning feel like a game, not a chore. The AI assistant is a lifesaver for tough subjects!",
+      "CogniTex làm cho việc học giống như một trò chơi, không phải là một công việc vặt. Trợ lý AI là một cứu cánh cho các môn học khó!",
     avatar: PlaceHolderImages.find((img) => img.id === 'testimonial-1')?.imageUrl,
     imageHint: PlaceHolderImages.find((img) => img.id === 'testimonial-1')?.imageHint
   },
@@ -90,7 +90,7 @@ const testimonials = [
     id: 'testimonial-2',
     name: 'Samantha Lee',
     quote:
-      "I love how I can track my mood and see how it connects to my learning. It's helped me build better study habits.",
+      "Tôi thích cách tôi có thể theo dõi tâm trạng của mình và xem nó kết nối với việc học của tôi như thế nào. Nó đã giúp tôi xây dựng thói quen học tập tốt hơn.",
     avatar: PlaceHolderImages.find((img) => img.id === 'testimonial-2')?.imageUrl,
     imageHint: PlaceHolderImages.find((img) => img.id === 'testimonial-2')?.imageHint
   },
@@ -98,7 +98,7 @@ const testimonials = [
     id: 'testimonial-3',
     name: 'David Chen',
     quote:
-      'The motivation dashboard is my favorite. Seeing my personal growth without any leaderboards is super encouraging.',
+      'Bảng điều khiển động lực là yêu thích của tôi. Thấy sự phát triển cá nhân của mình mà không có bất kỳ bảng xếp hạng nào là siêu khuyến khích.',
     avatar: PlaceHolderImages.find((img) => img.id === 'testimonial-3')?.imageUrl,
     imageHint: PlaceHolderImages.find((img) => img.id === 'testimonial-3')?.imageHint
   },
@@ -124,24 +124,22 @@ export default function LandingPage() {
           <h1 className="text-2xl font-bold text-primary">CogniTex</h1>
         </div>
         <Button asChild>
-          <Link href="/dashboard">Get Started</Link>
+          <Link href="/dashboard">Bắt đầu</Link>
         </Button>
       </header>
 
       <main className="container mx-auto px-4">
         <section className="text-center py-20 sm:py-32">
           <h2 className="text-4xl md:text-6xl font-bold tracking-tight bg-gradient-to-r from-primary to-accent text-transparent bg-clip-text">
-            Unlock Your Learning Potential
+            Mở Khóa Tiềm Năng Học Tập Của Bạn
           </h2>
           <p className="mt-4 max-w-2xl mx-auto text-lg text-foreground/80">
-            CogniTex is a personalized learning platform that uses AI to boost
-            your motivation, support your emotional well-being, and make
-            learning fun.
+            CogniTex là một nền tảng học tập được cá nhân hóa, sử dụng AI để tăng cường động lực, hỗ trợ sức khỏe tinh thần và làm cho việc học trở nên thú vị.
           </p>
           <div className="mt-8 flex justify-center gap-4">
             <Button size="lg" asChild>
               <Link href="#onboarding">
-                Start Your Journey <ArrowRight className="ml-2" />
+                Bắt Đầu Hành Trình Của Bạn <ArrowRight className="ml-2" />
               </Link>
             </Button>
           </div>
@@ -149,7 +147,7 @@ export default function LandingPage() {
 
         <section id="features" className="py-20">
           <h3 className="text-3xl font-bold text-center mb-12">
-            Features Designed for You
+            Các Tính Năng Dành Cho Bạn
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature) => (
@@ -170,7 +168,7 @@ export default function LandingPage() {
           <Card className="max-w-2xl mx-auto shadow-2xl">
             <CardHeader>
               <CardTitle className="text-2xl">
-                Kickstart Your Personalized Journey
+                Khởi Động Hành Trình Cá Nhân Hóa Của Bạn
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -185,7 +183,7 @@ export default function LandingPage() {
                     render={({ field }) => (
                       <FormItem className="space-y-3">
                         <FormLabel>
-                          How often do you use AI in learning?
+                          Bạn có thường sử dụng AI trong học tập không?
                         </FormLabel>
                         <FormControl>
                           <RadioGroup
@@ -198,7 +196,7 @@ export default function LandingPage() {
                                 <RadioGroupItem value="daily" />
                               </FormControl>
                               <FormLabel className="font-normal">
-                                Daily
+                                Hàng ngày
                               </FormLabel>
                             </FormItem>
                             <FormItem className="flex items-center space-x-3 space-y-0">
@@ -206,7 +204,7 @@ export default function LandingPage() {
                                 <RadioGroupItem value="weekly" />
                               </FormControl>
                               <FormLabel className="font-normal">
-                                A few times a week
+                                Vài lần một tuần
                               </FormLabel>
                             </FormItem>
                             <FormItem className="flex items-center space-x-3 space-y-0">
@@ -214,7 +212,7 @@ export default function LandingPage() {
                                 <RadioGroupItem value="rarely" />
                               </FormControl>
                               <FormLabel className="font-normal">
-                                Rarely or never
+                                Hiếm khi hoặc không bao giờ
                               </FormLabel>
                             </FormItem>
                           </RadioGroup>
@@ -230,7 +228,7 @@ export default function LandingPage() {
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>
-                          For how long do you want to learn daily?
+                          Bạn muốn học bao lâu mỗi ngày?
                         </FormLabel>
                         <Select
                           onValueChange={field.onChange}
@@ -238,15 +236,15 @@ export default function LandingPage() {
                         >
                           <FormControl>
                             <SelectTrigger>
-                              <SelectValue placeholder="Select a time goal" />
+                              <SelectValue placeholder="Chọn một mục tiêu thời gian" />
                             </SelectTrigger>
                           </FormControl>
                           <SelectContent>
-                            <SelectItem value="15-min">15 minutes</SelectItem>
-                            <SelectItem value="30-min">30 minutes</SelectItem>
-                            <SelectItem value="1-hour">1 hour</SelectItem>
+                            <SelectItem value="15-min">15 phút</SelectItem>
+                            <SelectItem value="30-min">30 phút</SelectItem>
+                            <SelectItem value="1-hour">1 giờ</SelectItem>
                             <SelectItem value="1-hour-plus">
-                              More than 1 hour
+                              Hơn 1 giờ
                             </SelectItem>
                           </SelectContent>
                         </Select>
@@ -261,7 +259,7 @@ export default function LandingPage() {
                     render={({ field }) => (
                       <FormItem className="space-y-3">
                         <FormLabel>
-                          Do you usually reflect on AI-generated answers?
+                          Bạn có thường suy ngẫm về các câu trả lời do AI tạo ra không?
                         </FormLabel>
                         <FormControl>
                           <RadioGroup
@@ -273,13 +271,13 @@ export default function LandingPage() {
                               <FormControl>
                                 <RadioGroupItem value="yes" />
                               </FormControl>
-                              <FormLabel className="font-normal">Yes</FormLabel>
+                              <FormLabel className="font-normal">Có</FormLabel>
                             </FormItem>
                             <FormItem className="flex items-center space-x-3 space-y-0">
                               <FormControl>
                                 <RadioGroupItem value="no" />
                               </FormControl>
-                              <FormLabel className="font-normal">No</FormLabel>
+                              <FormLabel className="font-normal">Không</FormLabel>
                             </FormItem>
                           </RadioGroup>
                         </FormControl>
@@ -288,7 +286,7 @@ export default function LandingPage() {
                     )}
                   />
                   <Button type="submit" className="w-full" size="lg">
-                    Get Started!
+                    Bắt đầu!
                   </Button>
                 </form>
               </Form>
@@ -298,7 +296,7 @@ export default function LandingPage() {
 
         <section id="testimonials" className="py-20">
           <h3 className="text-3xl font-bold text-center mb-12">
-            What Students Say
+            Học Sinh Nói Gì
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {testimonials.map((testimonial) => (
@@ -333,7 +331,7 @@ export default function LandingPage() {
 
       <footer className="border-t mt-20">
         <div className="container mx-auto px-4 py-6 text-center text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} CogniTex. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} CogniTex. Mọi quyền được bảo lưu.</p>
         </div>
       </footer>
     </div>

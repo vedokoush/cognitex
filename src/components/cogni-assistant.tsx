@@ -26,7 +26,7 @@ export default function CogniAssistant() {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
-      text: "Hello! I'm Cogni. How can I help you learn or feel better today? You can say things like 'I'm feeling stressed' or 'give me a quote'.",
+      text: "Xin chào! Tôi là Cogni. Tôi có thể giúp bạn học hoặc cảm thấy tốt hơn hôm nay như thế nào? Bạn có thể nói những điều như 'Tôi đang cảm thấy căng thẳng' hoặc 'cho tôi một câu trích dẫn'.",
       sender: 'ai',
     },
   ]);
@@ -49,8 +49,8 @@ export default function CogniAssistant() {
       // The other parameters can be generalized for this context.
       const result = await provideMotivationalSupport({
         mood: input,
-        recentActivity: 'Interacting with Cogni Assistant',
-        learningGoal: 'General Support',
+        recentActivity: 'Tương tác với Trợ lý Cogni',
+        learningGoal: 'Hỗ trợ chung',
       });
       
       const aiMessage: Message = {
@@ -60,10 +60,10 @@ export default function CogniAssistant() {
       };
       setMessages((prev) => [...prev, aiMessage]);
     } catch (error) {
-      console.error('Failed to get motivational support:', error);
+      console.error('Không thể nhận hỗ trợ động lực:', error);
       const errorMessage: Message = {
         id: (Date.now() + 1).toString(),
-        text: "I'm having a little trouble connecting right now. Please try again in a moment.",
+        text: "Tôi đang gặp một chút sự cố khi kết nối ngay bây giờ. Vui lòng thử lại trong giây lát.",
         sender: 'ai',
       };
       setMessages((prev) => [...prev, errorMessage]);
@@ -81,7 +81,7 @@ export default function CogniAssistant() {
           className="fixed bottom-6 right-6 h-16 w-16 rounded-full shadow-lg z-50 animate-bounce"
         >
           <Sparkles className="h-8 w-8" />
-          <span className="sr-only">Open Cogni Assistant</span>
+          <span className="sr-only">Mở Trợ lý Cogni</span>
         </Button>
       </PopoverTrigger>
       <PopoverContent
@@ -94,7 +94,7 @@ export default function CogniAssistant() {
           <header className="flex items-center justify-between p-4 bg-primary text-primary-foreground rounded-t-xl">
             <div className="flex items-center gap-3">
               <Bot className="h-6 w-6" />
-              <h3 className="font-semibold">Cogni Assistant</h3>
+              <h3 className="font-semibold">Trợ lý Cogni</h3>
             </div>
             <Button variant="ghost" size="icon" className="h-7 w-7" onClick={() => setIsOpen(false)}>
                 <X className="h-4 w-4" />
@@ -130,7 +130,7 @@ export default function CogniAssistant() {
                   </div>
                    {message.sender === 'user' && (
                      <Avatar className="h-8 w-8">
-                        <AvatarFallback>Y</AvatarFallback>
+                        <AvatarFallback>B</AvatarFallback>
                     </Avatar>
                   )}
                 </div>
@@ -156,7 +156,7 @@ export default function CogniAssistant() {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && handleSend()}
-                placeholder="Ask me anything..."
+                placeholder="Hỏi tôi bất cứ điều gì..."
                 className="pr-12"
                 disabled={isLoading}
               />

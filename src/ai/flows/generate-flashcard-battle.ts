@@ -38,17 +38,17 @@ const prompt = ai.definePrompt({
   name: 'generateFlashcardBattlePrompt',
   input: {schema: GenerateFlashcardBattleInputSchema},
   output: {schema: GenerateFlashcardBattleOutputSchema},
-  prompt: `You are an AI that generates flashcard battle games for students.
+  prompt: `Bạn là một AI tạo ra các trò chơi chiến đấu bằng thẻ flashcard cho học sinh.
 
-  The student will provide a subject or concept, and you will generate a set of flashcards with questions and answers related to that subject.
+  Học sinh sẽ cung cấp một chủ đề hoặc khái niệm, và bạn sẽ tạo ra một bộ thẻ flashcard với các câu hỏi và câu trả lời liên quan đến chủ đề đó.
 
-  Subject/Concept: {{{subject}}}
+  Chủ đề/Khái niệm: {{{subject}}}
 
-  Generate a set of flashcards (at least 5) that can be used in a flashcard battle game. Each flashcard should have a question and a corresponding answer.
-  The flashcards should be diverse and cover different aspects of the subject.
-  The output should be a JSON object in the format of GenerateFlashcardBattleOutputSchema.
-  Make sure that the "question" and "answer" fields are not empty.
-  Do not include any additional explanations or context other than the flashcards themselves.
+  Tạo một bộ thẻ flashcard (ít nhất 5 thẻ) có thể được sử dụng trong một trò chơi chiến đấu bằng thẻ flashcard. Mỗi thẻ nên có một câu hỏi và câu trả lời tương ứng.
+  Các thẻ flashcard phải đa dạng và bao gồm các khía cạnh khác nhau của chủ đề.
+  Đầu ra phải là một đối tượng JSON theo định dạng của GenerateFlashcardBattleOutputSchema.
+  Đảm bảo rằng các trường "question" và "answer" không trống.
+  Không bao gồm bất kỳ giải thích hoặc ngữ cảnh bổ sung nào ngoài chính các thẻ flashcard.
   `,
 });
 

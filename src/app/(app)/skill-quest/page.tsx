@@ -58,8 +58,8 @@ export default function SkillQuestPage() {
   const startGame = async () => {
     if (!subject) {
       toast({
-        title: 'No Subject',
-        description: 'Please enter a subject to start the battle.',
+        title: 'Chưa có chủ đề',
+        description: 'Vui lòng nhập một chủ đề để bắt đầu trận chiến.',
         variant: 'destructive',
       });
       return;
@@ -77,13 +77,13 @@ export default function SkillQuestPage() {
         setGameState('playing');
         setTurn('player');
       } else {
-        throw new Error('No flashcards generated.');
+        throw new Error('Không có thẻ flashcard nào được tạo.');
       }
     } catch (error) {
-      console.error('Failed to start game:', error);
+      console.error('Không thể bắt đầu trò chơi:', error);
       toast({
-        title: 'Error',
-        description: 'Could not generate flashcards. Please try another subject.',
+        title: 'Lỗi',
+        description: 'Không thể tạo thẻ flashcard. Vui lòng thử một chủ đề khác.',
         variant: 'destructive',
       });
       setGameState('idle');
@@ -95,11 +95,11 @@ export default function SkillQuestPage() {
     const isCorrect = playerAnswer.trim().toLowerCase() === flashcards[currentCardIndex].answer.trim().toLowerCase();
     
     if (isCorrect) {
-      setFeedback({ type: 'correct', message: `Correct! You dealt ${PLAYER_DAMAGE} damage.` });
+      setFeedback({ type: 'correct', message: `Chính xác! Bạn gây ${PLAYER_DAMAGE} sát thương.` });
       setAiHealth((prev) => Math.max(0, prev - PLAYER_DAMAGE));
       setXp((prev) => prev + 10);
     } else {
-      setFeedback({ type: 'incorrect', message: `Not quite. The correct answer was: ${flashcards[currentCardIndex].answer}` });
+      setFeedback({ type: 'incorrect', message: `Chưa đúng. Đáp án đúng là: ${flashcards[currentCardIndex].answer}` });
       setPlayerHealth((prev) => Math.max(0, prev - AI_DAMAGE));
     }
     setTurn('ai');
@@ -132,31 +132,31 @@ export default function SkillQuestPage() {
   return (
     <div className="flex flex-col gap-8 items-center">
       <div className="text-center">
-        <h1 className="text-3xl font-bold tracking-tight">SkillQuest</h1>
+        <h1 className="text-3xl font-bold tracking-tight">Nhiệm Vụ Kỹ Năng</h1>
         <p className="text-muted-foreground">
-          Battle your way to knowledge!
+          Chiến đấu theo cách của bạn để có kiến thức!
         </p>
       </div>
 
       {gameState === 'idle' && (
         <Card className="w-full max-w-md">
           <CardHeader>
-            <CardTitle>Start a New Battle</CardTitle>
+            <CardTitle>Bắt đầu một trận chiến mới</CardTitle>
             <CardDescription>
-              Enter a subject or concept to generate a flashcard battle.
+              Nhập một chủ đề hoặc khái niệm để tạo ra một trận chiến flashcard.
             </CardDescription>
           </CardHeader>
           <CardContent>
             <Input
               value={subject}
               onChange={(e) => setSubject(e.target.value)}
-              placeholder="e.g., Photosynthesis, World War II, React Hooks"
+              placeholder="ví dụ: Quang hợp, Chiến tranh thế giới thứ hai, React Hooks"
               onKeyDown={(e) => e.key === 'Enter' && startGame()}
             />
           </CardContent>
           <CardFooter>
             <Button onClick={startGame} className="w-full">
-              <Swords className="mr-2 h-4 w-4" /> Start Battle
+              <Swords className="mr-2 h-4 w-4" /> Bắt đầu trận chiến
             </Button>
           </CardFooter>
         </Card>
@@ -165,8 +165,8 @@ export default function SkillQuestPage() {
       {gameState === 'loading' && (
         <div className="flex flex-col items-center gap-4 text-center">
             <Sparkles className="h-12 w-12 text-primary animate-pulse" />
-            <p className="text-lg font-medium">Generating your quest...</p>
-            <p className="text-muted-foreground">The AI is crafting challenging questions about {subject}.</p>
+            <p className="text-lg font-medium">Đang tạo nhiệm vụ của bạn...</p>
+            <p className="text-muted-foreground">AI đang tạo ra các câu hỏi thử thách về {subject}.</p>
         </div>
       )}
 
@@ -174,27 +174,27 @@ export default function SkillQuestPage() {
         <div className="w-full max-w-2xl space-y-6">
           <div className="grid grid-cols-2 gap-4 text-center">
             <div>
-              <div className="flex items-center justify-center gap-2 font-semibold"><User/> Player</div>
+              <div className="flex items-center justify-center gap-2 font-semibold"><User/> Người chơi</div>
               <Progress value={playerHealth} className="mt-2" />
-              <p className="text-sm text-muted-foreground mt-1">{playerHealth} / {MAX_HEALTH} HP</p>
+              <p className="text-sm text-muted-foreground mt-1">{playerHealth} / {MAX_HEALTH} Máu</p>
             </div>
             <div>
-              <div className="flex items-center justify-center gap-2 font-semibold"><Bot /> AI Enemy</div>
+              <div className="flex items-center justify-center gap-2 font-semibold"><Bot /> Đối thủ AI</div>
               <Progress value={aiHealth} className="mt-2" indicatorClassName="bg-destructive"/>
-              <p className="text-sm text-muted-foreground mt-1">{aiHealth} / {MAX_HEALTH} HP</p>
+              <p className="text-sm text-muted-foreground mt-1">{aiHealth} / {MAX_HEALTH} Máu</p>
             </div>
           </div>
 
           <Card className="text-center">
             <CardHeader>
-              <CardDescription>Question {currentCardIndex + 1} of {flashcards.length}</CardDescription>
+              <CardDescription>Câu hỏi {currentCardIndex + 1} trên {flashcards.length}</CardDescription>
               <CardTitle className="text-2xl">{currentCard.question}</CardTitle>
             </CardHeader>
             <CardContent>
                 <Input
                   value={playerAnswer}
                   onChange={(e) => setPlayerAnswer(e.target.value)}
-                  placeholder="Your answer..."
+                  placeholder="Câu trả lời của bạn..."
                   disabled={turn !== 'player'}
                   onKeyDown={(e) => e.key === 'Enter' && handleAnswerSubmit()}
                   className="text-center"
@@ -202,9 +202,9 @@ export default function SkillQuestPage() {
             </CardContent>
             <CardFooter className="flex-col gap-4">
                {turn === 'player' ? (
-                 <Button onClick={handleAnswerSubmit} className="w-full">Attack!</Button>
+                 <Button onClick={handleAnswerSubmit} className="w-full">Tấn công!</Button>
                ) : (
-                 <Button onClick={nextTurn} className="w-full">Next Question</Button>
+                 <Button onClick={nextTurn} className="w-full">Câu hỏi tiếp theo</Button>
                )}
             </CardFooter>
           </Card>
@@ -212,7 +212,7 @@ export default function SkillQuestPage() {
            {feedback && (
             <Alert variant={feedback.type === 'correct' ? 'default' : 'destructive'} className={cn(feedback.type === 'correct' && 'border-green-500 text-green-700 dark:text-green-400')}>
               <Shield className="h-4 w-4" />
-              <AlertTitle>{feedback.type === 'correct' ? 'Success!' : 'Oh no!'}</AlertTitle>
+              <AlertTitle>{feedback.type === 'correct' ? 'Thành công!' : 'Ôi không!'}</AlertTitle>
               <AlertDescription>
                 {feedback.message}
               </AlertDescription>
@@ -224,18 +224,18 @@ export default function SkillQuestPage() {
       <AlertDialog open={gameState === 'ended'}>
         <AlertDialogContent>
           <AlertDialogHeader>
-            <AlertDialogTitle>{playerHealth > 0 ? "Victory!" : "Defeat!"}</AlertDialogTitle>
+            <AlertDialogTitle>{playerHealth > 0 ? "Chiến thắng!" : "Thất bại!"}</AlertDialogTitle>
             <AlertDialogDescription>
-              {playerHealth > 0 ? "You have vanquished the AI! Your knowledge prevails." : "The AI has bested you. Time to study and come back stronger!"}
+              {playerHealth > 0 ? "Bạn đã đánh bại AI! Kiến thức của bạn đã chiến thắng." : "AI đã đánh bại bạn. Hãy học tập và trở lại mạnh mẽ hơn!"}
             </AlertDialogDescription>
           </AlertDialogHeader>
           <div className="flex items-center justify-center gap-4 my-4">
             <div className="flex items-center gap-2 text-lg font-semibold text-yellow-500">
-                <Star /> {xp} XP Gained
+                <Star /> {xp} KN nhận được
             </div>
           </div>
           <AlertDialogFooter>
-            <AlertDialogAction onClick={resetGame}>Play Again</AlertDialogAction>
+            <AlertDialogAction onClick={resetGame}>Chơi lại</AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>

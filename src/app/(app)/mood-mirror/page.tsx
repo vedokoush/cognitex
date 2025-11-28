@@ -39,11 +39,11 @@ import { Separator } from '@/components/ui/separator';
 import { Skeleton } from '@/components/ui/skeleton';
 
 const moods = [
-  { name: 'Happy', icon: HappyIcon, color: 'text-green-500' },
-  { name: 'Excited', icon: ExcitedIcon, color: 'text-yellow-500' },
-  { name: 'Tired', icon: TiredIcon, color: 'text-blue-500' },
-  { name: 'Stressed', icon: StressedIcon, color: 'text-purple-500' },
-  { name: 'Sad', icon: SadIcon, color: 'text-gray-500' },
+  { name: 'Vui', icon: HappyIcon, color: 'text-green-500' },
+  { name: 'Hào hứng', icon: ExcitedIcon, color: 'text-yellow-500' },
+  { name: 'Mệt mỏi', icon: TiredIcon, color: 'text-blue-500' },
+  { name: 'Căng thẳng', icon: StressedIcon, color: 'text-purple-500' },
+  { name: 'Buồn', icon: SadIcon, color: 'text-gray-500' },
 ];
 
 type MoodInsight = {
@@ -53,16 +53,16 @@ type MoodInsight = {
 };
 
 const reflectionChartData = [
-  { date: 'Mon', emotion: 8, progress: 7 },
-  { date: 'Tue', emotion: 6, progress: 8 },
-  { date: 'Wed', emotion: 7, progress: 6 },
-  { date: 'Thu', emotion: 9, progress: 9 },
-  { date: 'Fri', emotion: 7, progress: 8 },
+  { date: 'T2', emotion: 8, progress: 7 },
+  { date: 'T3', emotion: 6, progress: 8 },
+  { date: 'T4', emotion: 7, progress: 6 },
+  { date: 'T5', emotion: 9, progress: 9 },
+  { date: 'T6', emotion: 7, progress: 8 },
 ];
 
 const chartConfig = {
-  emotion: { label: 'Emotion', color: 'hsl(var(--primary))' },
-  progress: { label: 'Progress', color: 'hsl(var(--accent))' },
+  emotion: { label: 'Cảm xúc', color: 'hsl(var(--primary))' },
+  progress: { label: 'Tiến độ', color: 'hsl(var(--accent))' },
 } satisfies ChartConfig;
 
 export default function MoodMirrorPage() {
@@ -88,16 +88,16 @@ export default function MoodMirrorPage() {
   return (
     <div className="flex flex-col gap-8">
       <div>
-        <h1 className="text-3xl font-bold tracking-tight">MindMirror</h1>
+        <h1 className="text-3xl font-bold tracking-tight">Gương Thần</h1>
         <p className="text-muted-foreground">
-          Check in with your emotions and reflect on your journey.
+          Kiểm tra cảm xúc và suy ngẫm về hành trình của bạn.
         </p>
       </div>
 
       <Card>
         <CardHeader>
-          <CardTitle>How are you feeling today?</CardTitle>
-          <CardDescription>Select a mood to get personalized insights.</CardDescription>
+          <CardTitle>Hôm nay bạn cảm thấy thế nào?</CardTitle>
+          <CardDescription>Chọn một tâm trạng để nhận thông tin chi tiết được cá nhân hóa.</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
@@ -136,7 +136,7 @@ export default function MoodMirrorPage() {
                 <Card className="bg-background/50">
                   <CardHeader className="flex-row items-center gap-3 space-y-0">
                     <Lightbulb className="h-6 w-6 text-primary" />
-                    <CardTitle>Cause Insight</CardTitle>
+                    <CardTitle>Nguyên Nhân</CardTitle>
                   </CardHeader>
                   <CardContent>
                     {loading ? <Skeleton className="h-20" /> : <p>{insights?.insight}</p>}
@@ -145,7 +145,7 @@ export default function MoodMirrorPage() {
                 <Card className="bg-background/50">
                   <CardHeader className="flex-row items-center gap-3 space-y-0">
                     <Activity className="h-6 w-6 text-primary" />
-                    <CardTitle>Suggested Activity</CardTitle>
+                    <CardTitle>Hoạt Động Gợi Ý</CardTitle>
                   </CardHeader>
                   <CardContent>
                   {loading ? <Skeleton className="h-20" /> : <p>{insights?.suggestedActivity}</p>}
@@ -154,7 +154,7 @@ export default function MoodMirrorPage() {
                 <Card className="bg-background/50">
                   <CardHeader className="flex-row items-center gap-3 space-y-0">
                     <BrainCircuit className="h-6 w-6 text-primary" />
-                    <CardTitle>Motivation Analysis</CardTitle>
+                    <CardTitle>Phân Tích Động Lực</CardTitle>
                   </CardHeader>
                   <CardContent>
                   {loading ? <Skeleton className="h-20" /> : <p>{insights?.motivationStateAnalysis}</p>}
@@ -170,35 +170,35 @@ export default function MoodMirrorPage() {
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
-              <Pencil /> Daily Reflection
+              <Pencil /> Suy Ngẫm Hàng Ngày
             </CardTitle>
             <CardDescription>
-              Take a moment to think about your day.
+              Dành một chút thời gian để suy nghĩ về ngày của bạn.
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">
             <div className="space-y-2">
-              <Label>What's one thing you learned today?</Label>
-              <Textarea placeholder="e.g., I learned about the Pythagorean theorem..." />
+              <Label>Một điều bạn đã học được hôm nay là gì?</Label>
+              <Textarea placeholder="ví dụ: Tôi đã học về định lý Pythagoras..." />
             </div>
             <div className="space-y-4">
-              <Label>How difficult did you find today's topic?</Label>
+              <Label>Bạn thấy chủ đề hôm nay khó đến mức nào?</Label>
               <Slider defaultValue={[50]} max={100} step={1} />
             </div>
             <div className="space-y-4">
-              <Label>How confident do you feel about it?</Label>
+              <Label>Bạn cảm thấy tự tin về nó đến mức nào?</Label>
               <Slider defaultValue={[50]} max={100} step={1} />
             </div>
-            <Button className="w-full">Save Reflection</Button>
+            <Button className="w-full">Lưu Suy Ngẫm</Button>
           </CardContent>
         </Card>
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
-              <LineChart /> Emotion & Progress
+              <LineChart /> Cảm Xúc &amp; Tiến Độ
             </CardTitle>
             <CardDescription>
-              Your reflection history for the past week.
+              Lịch sử suy ngẫm của bạn trong tuần qua.
             </CardDescription>
           </CardHeader>
           <CardContent>

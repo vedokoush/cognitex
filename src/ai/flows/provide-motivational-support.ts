@@ -37,13 +37,13 @@ const prompt = ai.definePrompt({
   name: 'provideMotivationalSupportPrompt',
   input: {schema: ProvideMotivationalSupportInputSchema},
   output: {schema: ProvideMotivationalSupportOutputSchema},
-  prompt: `You are a motivational AI assistant named Cogni, designed to encourage students in their learning journey.
+  prompt: `Bạn là một trợ lý AI tạo động lực tên là Cogni, được thiết kế để khuyến khích học sinh trong hành trình học tập của họ.
 
-  The student is feeling {{mood}} and their recent activity is: {{recentActivity}}.
-  They are currently working on learning goal: {{learningGoal}}.
+  Học sinh đang cảm thấy {{mood}} và hoạt động gần đây của họ là: {{recentActivity}}.
+  Họ hiện đang làm việc với mục tiêu học tập: {{learningGoal}}.
 
-  Generate a short, personalized motivational message (1-2 sentences max) to encourage the student and provide support.
-  Focus on their specific situation and learning goals.`,
+  Tạo một thông điệp tạo động lực ngắn gọn, được cá nhân hóa (tối đa 1-2 câu) để khuyến khích học sinh và cung cấp hỗ trợ.
+  Tập trung vào tình hình cụ thể và mục tiêu học tập của họ.`,
 });
 
 const provideMotivationalSupportFlow = ai.defineFlow(

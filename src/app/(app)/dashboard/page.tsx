@@ -20,17 +20,17 @@ import {
 import { calculateMotivationScore } from '@/ai/flows/calculate-motivation-score';
 
 const chartData = [
-  { month: 'January', desktop: 186, mobile: 80 },
-  { month: 'February', desktop: 305, mobile: 200 },
-  { month: 'March', desktop: 237, mobile: 120 },
-  { month: 'April', desktop: 73, mobile: 190 },
-  { month: 'May', desktop: 209, mobile: 130 },
-  { month: 'June', desktop: 214, mobile: 140 },
+  { month: 'Tháng 1', desktop: 186, mobile: 80 },
+  { month: 'Tháng 2', desktop: 305, mobile: 200 },
+  { month: 'Tháng 3', desktop: 237, mobile: 120 },
+  { month: 'Tháng 4', desktop: 73, mobile: 190 },
+  { month: 'Tháng 5', desktop: 209, mobile: 130 },
+  { month: 'Tháng 6', desktop: 214, mobile: 140 },
 ];
 
 const chartConfig = {
   desktop: {
-    label: 'Skill Growth',
+    label: 'Phát triển Kỹ năng',
     color: 'hsl(var(--primary))',
   },
 } satisfies ChartConfig;
@@ -54,7 +54,7 @@ export default function DashboardPage() {
     async function fetchMotivationScore() {
       try {
         setLoading(true);
-        const mood = 'focused'; // Assuming a default mood for dashboard load
+        const mood = 'tập trung'; // Assuming a default mood for dashboard load
         const progressData = JSON.stringify(mockProgressData);
         const result = await calculateMotivationScore({ mood, progressData });
         setMotivationData({
@@ -65,7 +65,7 @@ export default function DashboardPage() {
         console.error('Failed to fetch motivation score:', error);
         setMotivationData({
           score: 78, // Fallback score
-          insights: 'Keep up the great work! Your consistency is paying off.', // Fallback insight
+          insights: 'Hãy tiếp tục công việc tuyệt vời của bạn! Sự nhất quán của bạn đang được đền đáp.', // Fallback insight
         });
       } finally {
         setLoading(false);
@@ -77,16 +77,16 @@ export default function DashboardPage() {
   return (
     <div className="flex flex-col gap-8">
       <div>
-        <h1 className="text-3xl font-bold tracking-tight">Welcome Back!</h1>
+        <h1 className="text-3xl font-bold tracking-tight">Chào mừng trở lại!</h1>
         <p className="text-muted-foreground">
-          Here's a snapshot of your learning journey.
+          Đây là tổng quan về hành trình học tập của bạn.
         </p>
       </div>
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">
-              Motivation Score
+              Điểm Động Lực
             </CardTitle>
             <Activity className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
@@ -107,37 +107,37 @@ export default function DashboardPage() {
         </Card>
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Streak Counter</CardTitle>
+            <CardTitle className="text-sm font-medium">Chuỗi Ngày Học</CardTitle>
             <Award className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{mockProgressData.streak} days</div>
+            <div className="text-2xl font-bold">{mockProgressData.streak} ngày</div>
             <p className="text-xs text-muted-foreground">
-              Keep the flame alive!
+              Hãy giữ vững ngọn lửa!
             </p>
           </CardContent>
         </Card>
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Time Spent</CardTitle>
+            <CardTitle className="text-sm font-medium">Thời Gian Học</CardTitle>
             <Clock className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{mockProgressData.timeSpent} hrs</div>
+            <div className="text-2xl font-bold">{mockProgressData.timeSpent} giờ</div>
             <p className="text-xs text-muted-foreground">
-              in the last 7 days
+              trong 7 ngày qua
             </p>
           </CardContent>
         </Card>
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Skill Growth</CardTitle>
+            <CardTitle className="text-sm font-medium">Tăng Trưởng Kỹ Năng</CardTitle>
             <TrendingUp className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">+{mockProgressData.skillGrowth}%</div>
             <p className="text-xs text-muted-foreground">
-              since last month
+              so với tháng trước
             </p>
           </CardContent>
         </Card>
@@ -145,9 +145,9 @@ export default function DashboardPage() {
 
       <Card>
         <CardHeader>
-          <CardTitle>Skill Growth Indicator</CardTitle>
+          <CardTitle>Chỉ Báo Tăng Trưởng Kỹ Năng</CardTitle>
           <CardDescription>
-            A look at your progress over the last few months.
+            Cái nhìn về sự tiến bộ của bạn trong vài tháng qua.
           </CardDescription>
         </CardHeader>
         <CardContent>

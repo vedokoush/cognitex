@@ -51,16 +51,16 @@ const prompt = ai.definePrompt({
   name: 'calculateMotivationScorePrompt',
   input: {schema: CalculateMotivationScoreInputSchema},
   output: {schema: CalculateMotivationScoreOutputSchema},
-  prompt: `You are an AI motivation expert. Your task is to calculate a motivation score for a student based on their mood and progress data.
+  prompt: `Bạn là một chuyên gia về động lực AI. Nhiệm vụ của bạn là tính toán điểm động lực cho một học sinh dựa trên tâm trạng và dữ liệu tiến độ của họ.
 
-Mood: {{{mood}}}
-Progress Data: {{{progressData}}}
+Tâm trạng: {{{mood}}}
+Dữ liệu tiến độ: {{{progressData}}}
 
-Consider the mood and progress data to calculate the motivation score. A positive mood and good progress should result in a higher score. A negative mood and poor progress should result in a lower score.
+Hãy xem xét tâm trạng và dữ liệu tiến độ để tính điểm động lực. Một tâm trạng tích cực và tiến độ tốt sẽ cho điểm cao hơn. Một tâm trạng tiêu cực và tiến độ kém sẽ cho điểm thấp hơn.
 
-Provide insights into the motivation score, explaining which factors are contributing positively or negatively to the score.
+Cung cấp thông tin chi tiết về điểm động lực, giải thích yếu tố nào đang góp phần tích cực hoặc tiêu cực vào điểm số.
 
-Please output a JSON document.
+Vui lòng xuất ra một tài liệu JSON.
 `,
 });
 
