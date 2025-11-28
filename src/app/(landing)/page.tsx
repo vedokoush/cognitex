@@ -8,7 +8,6 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import {
   ArrowRight,
-  BrainCircuit,
   HeartHandshake,
   Puzzle,
   Sparkles,
@@ -41,6 +40,7 @@ import {
 } from '@/components/ui/select';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import Navigation from '@/components/navigation';
 
 const onboardingSchema = z.object({
   aiUsage: z.string({ required_error: 'Vui lòng chọn một tùy chọn.' }),
@@ -118,15 +118,7 @@ export default function LandingPage() {
 
   return (
     <div className="w-full min-h-screen bg-background text-foreground">
-      <header className="container mx-auto px-4 py-6 flex justify-between items-center">
-        <div className="flex items-center gap-2">
-          <BrainCircuit className="h-8 w-8 text-primary" />
-          <h1 className="text-2xl font-bold text-primary">CogniTex</h1>
-        </div>
-        <Button asChild>
-          <Link href="/dashboard">Bắt đầu</Link>
-        </Button>
-      </header>
+      <Navigation />
 
       <main className="container mx-auto px-4">
         <section className="text-center py-20 sm:py-32">
