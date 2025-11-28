@@ -1,3 +1,22 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "testimonial-1",
+      "description": "A smiling student using a laptop.",
+      "imageUrl": "https://images.unsplash.com/photo-1503945438517-f65904a52ce6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxzdHVkZW50JTIwbGFwdG9wfGVufDB8fHx8MTc2NDMyOTgzNXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "student laptop"
+    },
+    {
+      "id": "testimonial-2",
+      "description": "A focused student writing in a notebook.",
+      "imageUrl": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxzdHVkZW50JTIwd3JpdGluZ3xlbnwwfHx8fDE3NjQyNTAzNzR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "student writing"
+    },
+    {
+      "id": "testimonial-3",
+      "description": "A happy student looking at the camera.",
+      "imageUrl": "https://images.unsplash.com/photo-1521702813222-1943f3fb9c07?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxoYXBweSUyMHN0dWRlbnR8ZW58MHx8fHwxNzY0MjU5MzgwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "happy student"
+    }
+  ]
 }
