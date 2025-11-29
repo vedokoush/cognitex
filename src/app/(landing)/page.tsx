@@ -120,45 +120,45 @@ export default function LandingPage() {
 
   return (
     <div className="w-full min-h-screen bg-background text-foreground">
-      <div className="relative h-screen w-full">
+      <div className="relative h-[60vh] md:h-[80vh] w-full">
         {heroImage && (
           <Image
             src={heroImage.imageUrl}
             alt={heroImage.description}
             fill
             className="object-cover"
+            priority
             data-ai-hint={heroImage.imageHint}
           />
         )}
-        <div className="absolute inset-0 bg-black/60" />
-        <div className="relative z-10 h-full flex flex-col">
-          <Navigation />
-          <main className="flex-1 flex flex-col items-center justify-center text-center px-4">
-            <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white">
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
+        <Navigation />
+      </div>
+
+      <main className="container mx-auto px-4 -mt-24 md:-mt-32 relative z-10">
+        <div className="text-center mb-24">
+            <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
               Mở Khóa Tiềm Năng Học Tập Của Bạn
             </h1>
-            <p className="mt-4 max-w-2xl mx-auto text-lg text-white/80">
+            <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
               CogniTex là một nền tảng học tập được cá nhân hóa, sử dụng AI để tăng cường động lực, hỗ trợ sức khỏe tinh thần và làm cho việc học trở nên thú vị.
             </p>
             <div className="mt-8 flex justify-center gap-4">
-              <Button size="lg" asChild variant="outline">
+               <Button size="lg" asChild>
                 <Link href="#onboarding">
                   Bắt Đầu Hành Trình Của Bạn <ArrowRight className="ml-2" />
                 </Link>
               </Button>
             </div>
-          </main>
         </div>
-      </div>
       
-      <div className="container mx-auto px-4">
         <section id="features" className="py-20">
           <h3 className="text-3xl font-bold text-center mb-12">
             Các Tính Năng Dành Cho Bạn
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature) => (
-              <Card key={feature.title} className="text-center bg-card/80 backdrop-blur-sm shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <Card key={feature.title} className="text-center bg-card shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <CardHeader className="items-center">
                   {feature.icon}
                   <CardTitle className="mt-4">{feature.title}</CardTitle>
@@ -307,7 +307,7 @@ export default function LandingPage() {
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {testimonials.map((testimonial) => (
-              <Card key={testimonial.id} className="bg-card/80 backdrop-blur-sm flex flex-col">
+              <Card key={testimonial.id} className="bg-card flex flex-col">
                 <CardContent className="pt-6 flex-grow">
                   <p className="italic text-foreground/90">"{testimonial.quote}"</p>
                 </CardContent>
@@ -334,8 +334,7 @@ export default function LandingPage() {
             ))}
           </div>
         </section>
-      </div>
-
+      </main>
       <footer className="border-t mt-20">
         <div className="container mx-auto px-4 py-6 text-center text-muted-foreground">
           <p>&copy; {new Date().getFullYear()} CogniTex. Mọi quyền được bảo lưu.</p>
