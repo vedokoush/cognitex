@@ -1,6 +1,12 @@
 {
   "placeholderImages": [
     {
+      "id": "hero-background",
+      "description": "A stunning mountain landscape at dusk, with a starry sky.",
+      "imageUrl": "https://images.unsplash.com/photo-1612441804231-77a36b284856?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxtb3VudGFpbiUyMGxhbmRzY2FwZXxlbnwwfHx8fDE3NjQzOTczMTV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "mountain landscape"
+    },
+    {
       "id": "testimonial-1",
       "description": "A smiling student using a laptop.",
       "imageUrl": "https://images.unsplash.com/photo-1503945438517-f65904a52ce6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxzdHVkZW50JTIwbGFwdG9wfGVufDB8fHx8MTc2NDMyOTgzNXww&ixlib=rb-4.1.0&q=80&w=1080",

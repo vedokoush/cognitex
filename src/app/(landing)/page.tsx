@@ -104,6 +104,8 @@ const testimonials = [
   },
 ];
 
+const heroImage = PlaceHolderImages.find((img) => img.id === 'hero-background');
+
 export default function LandingPage() {
   const form = useForm<OnboardingFormValues>({
     resolver: zodResolver(onboardingSchema),
@@ -118,25 +120,38 @@ export default function LandingPage() {
 
   return (
     <div className="w-full min-h-screen bg-background text-foreground">
-      <Navigation />
-
-      <main className="container mx-auto px-4">
-        <section className="text-center py-20 sm:py-32">
-          <h2 className="text-4xl md:text-6xl font-bold tracking-tight bg-gradient-to-r from-primary to-accent text-transparent bg-clip-text">
-            Mở Khóa Tiềm Năng Học Tập Của Bạn
-          </h2>
-          <p className="mt-4 max-w-2xl mx-auto text-lg text-foreground/80">
-            CogniTex là một nền tảng học tập được cá nhân hóa, sử dụng AI để tăng cường động lực, hỗ trợ sức khỏe tinh thần và làm cho việc học trở nên thú vị.
-          </p>
-          <div className="mt-8 flex justify-center gap-4">
-            <Button size="lg" asChild>
-              <Link href="#onboarding">
-                Bắt Đầu Hành Trình Của Bạn <ArrowRight className="ml-2" />
-              </Link>
-            </Button>
-          </div>
-        </section>
-
+      <div className="relative h-screen w-full">
+        {heroImage && (
+          <Image
+            src={heroImage.imageUrl}
+            alt={heroImage.description}
+            fill
+            className="object-cover"
+            data-ai-hint={heroImage.imageHint}
+          />
+        )}
+        <div className="absolute inset-0 bg-black/60" />
+        <div className="relative z-10 h-full flex flex-col">
+          <Navigation />
+          <main className="flex-1 flex flex-col items-center justify-center text-center px-4">
+            <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white">
+              Mở Khóa Tiềm Năng Học Tập Của Bạn
+            </h1>
+            <p className="mt-4 max-w-2xl mx-auto text-lg text-white/80">
+              CogniTex là một nền tảng học tập được cá nhân hóa, sử dụng AI để tăng cường động lực, hỗ trợ sức khỏe tinh thần và làm cho việc học trở nên thú vị.
+            </p>
+            <div className="mt-8 flex justify-center gap-4">
+              <Button size="lg" asChild variant="outline">
+                <Link href="#onboarding">
+                  Bắt Đầu Hành Trình Của Bạn <ArrowRight className="ml-2" />
+                </Link>
+              </Button>
+            </div>
+          </main>
+        </div>
+      </div>
+      
+      <div className="container mx-auto px-4">
         <section id="features" className="py-20">
           <h3 className="text-3xl font-bold text-center mb-12">
             Các Tính Năng Dành Cho Bạn
@@ -319,7 +334,7 @@ export default function LandingPage() {
             ))}
           </div>
         </section>
-      </main>
+      </div>
 
       <footer className="border-t mt-20">
         <div className="container mx-auto px-4 py-6 text-center text-muted-foreground">

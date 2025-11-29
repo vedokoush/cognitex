@@ -51,11 +51,11 @@ const navItems = [
 
 export default function Navigation() {
   return (
-    <header className="container mx-auto px-4 py-4 flex justify-between items-center border-b">
+    <header className="container mx-auto px-4 py-4 flex justify-between items-center">
       <div className="flex items-center gap-8">
         <Link href="/" className="flex items-center gap-2">
-          <BrainCircuit className="h-8 w-8 text-primary" />
-          <span className="font-bold text-xl text-primary">CogniTex</span>
+          <BrainCircuit className="h-8 w-8 text-white" />
+          <span className="font-bold text-xl text-white">CogniTex</span>
         </Link>
         <nav className="hidden md:flex items-center gap-6">
           {navItems.map((item) =>
@@ -64,7 +64,7 @@ export default function Navigation() {
                 <DropdownMenuTrigger asChild>
                   <Button
                     variant="ghost"
-                    className="flex items-center gap-1 text-sm font-medium text-foreground/80 hover:text-foreground"
+                    className="flex items-center gap-1 text-sm font-medium text-white/80 hover:text-white"
                   >
                     {item.label} <ChevronDown className="h-4 w-4" />
                   </Button>
@@ -81,7 +81,7 @@ export default function Navigation() {
               <Link
                 key={item.label}
                 href={item.href}
-                className="text-sm font-medium text-foreground/80 hover:text-foreground"
+                className="text-sm font-medium text-white/80 hover:text-white"
               >
                 {item.label}
               </Link>
