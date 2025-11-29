@@ -22,22 +22,22 @@ const navItems = [
     ],
   },
   {
-    label: 'Điểm khác biệt',
+    label: 'MindMirror',
     href: '#',
     dropdown: [
-      { label: 'Học tập cá nhân hóa', href: '#' },
+      { label: 'Mood Scanner', href: '#' },
       { label: 'Hỗ trợ bằng AI', href: '#' },
       { label: 'Gamification', href: '#' },
     ],
   },
   {
-    label: 'Sách giáo trình',
-    href: '#',
+    label: 'Reflection Wall',
+    href: '#', dropdown: [
+        { label: 'RiseBoard', href: '#' },
+          { label: 'SkillQuest', href: '#' },
+          { label: 'LearnPulse', href: '#' },],
   },
-  {
-    label: 'Điểm và review',
-    href: '#',
-  },
+
   {
     label: 'Khóa học',
     href: '#',
@@ -45,20 +45,6 @@ const navItems = [
       { label: 'Toán', href: '#' },
       { label: 'Lý', href: '#' },
       { label: 'Hóa', href: '#' },
-    ],
-  },
-  {
-    label: 'Lịch khai giảng',
-    href: '#',
-  },
-  {
-    label: 'Kiến thức IELTS',
-    href: '#',
-    dropdown: [
-      { label: 'Reading', href: '#' },
-      { label: 'Writing', href: '#' },
-      { label: 'Listening', href: '#' },
-      { label: 'Speaking', href: '#' },
     ],
   },
 ];
