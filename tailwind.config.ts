@@ -10,8 +10,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        body: ['Poppins', 'sans-serif'],
-        headline: ['Poppins', 'sans-serif'],
+        body: ['"Be Vietnam Pro"', 'sans-serif'],
+        headline: ['"Be Vietnam Pro"', 'sans-serif'],
         code: ['monospace'],
       },
       colors: {
