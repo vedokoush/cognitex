@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
+import CogniAssistant from '@/components/cogni-assistant';
 
 export const metadata: Metadata = {
   title: 'CogniTex',
@@ -24,6 +25,7 @@ export default function RootLayout({
       </head>
       <body className="font-body antialiased">
         {children}
+        <CogniAssistant />
         <Toaster />
       </body>
     </html>

@@ -19,7 +19,6 @@ import {
   SidebarMenuButton,
   SidebarInset,
 } from '@/components/ui/sidebar';
-import CogniAssistant from '@/components/cogni-assistant';
 import { cn } from '@/lib/utils';
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
@@ -82,7 +81,6 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
             <main className="flex-1 p-4 sm:p-6 lg:p-8 bg-background">
                 {children}
             </main>
-            <CogniAssistant />
         </SidebarInset>
       </div>
     </SidebarProvider>
