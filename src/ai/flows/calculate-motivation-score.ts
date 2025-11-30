@@ -3,43 +3,16 @@
 /**
  * @fileOverview A flow to calculate the motivation score based on mood and progress data.
  *
- * - calculateMotivationScore - A function that calculates the motivation score.
- * - CalculateMotivationScoreInput - The input type for the calculateMotivationScore function.
- * - CalculateMotivationScoreOutput - The return type for the calculateMotivationScore function.
+ * - calculateMotivationScore - A function that calculates the motivation-score.
  */
 
 import {ai} from '@/ai/genkit';
-import {z} from 'genkit';
-
-const CalculateMotivationScoreInputSchema = z.object({
-  mood: z
-    .string()
-    .describe("The student's current mood (e.g., stress, excited, tired)."),
-  progressData: z
-    .string()
-    .describe(
-      'A string containing a json document of student progress data, including streak counter, time spent learning and skill growth indicator.'
-    ),
-});
-export type CalculateMotivationScoreInput = z.infer<
-  typeof CalculateMotivationScoreInputSchema
->;
-
-const CalculateMotivationScoreOutputSchema = z.object({
-  motivationScore: z
-    .number()
-    .describe(
-      'A numerical score representing the student’s current motivation level.'
-    ),
-  insights: z
-    .string()
-    .describe(
-      'Insights into the motivation score, including factors that are positively or negatively influencing it.'
-    ),
-});
-export type CalculateMotivationScoreOutput = z.infer<
-  typeof CalculateMotivationScoreOutputSchema
->;
+import {
+  CalculateMotivationScoreInput,
+  CalculateMotivationScoreInputSchema,
+  CalculateMotivationScoreOutput,
+  CalculateMotivationScoreOutputSchema,
+} from '@/ai/schemas/calculate-motivation-score.schema';
 
 export async function calculateMotivationScore(
   input: CalculateMotivationScoreInput

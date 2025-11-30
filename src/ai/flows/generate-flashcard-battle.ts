@@ -4,29 +4,15 @@
  * @fileOverview This file defines a Genkit flow for generating flashcard battle games based on a given subject or concept.
  *
  * - generateFlashcardBattle - A function that takes a subject/concept and returns a flashcard battle game.
- * - GenerateFlashcardBattleInput - The input type for the generateFlashcardBattle function.
- * - GenerateFlashcardBattleOutput - The return type for the generateFlashcardBattle function.
  */
 
 import {ai} from '@/ai/genkit';
-import {z} from 'genkit';
-
-const GenerateFlashcardBattleInputSchema = z.object({
-  subject: z.string().describe('The subject or concept for which to generate the flashcard battle.'),
-});
-export type GenerateFlashcardBattleInput = z.infer<typeof GenerateFlashcardBattleInputSchema>;
-
-const GenerateFlashcardBattleOutputSchema = z.object({
-  flashcards: z
-    .array(
-      z.object({
-        question: z.string().describe('The question for the flashcard.'),
-        answer: z.string().describe('The answer to the question.'),
-      })
-    )
-    .describe('An array of flashcards for the battle.'),
-});
-export type GenerateFlashcardBattleOutput = z.infer<typeof GenerateFlashcardBattleOutputSchema>;
+import {
+  GenerateFlashcardBattleInput,
+  GenerateFlashcardBattleInputSchema,
+  GenerateFlashcardBattleOutput,
+  GenerateFlashcardBattleOutputSchema,
+} from '@/ai/schemas/generate-flashcard-battle.schema';
 
 export async function generateFlashcardBattle(
   input: GenerateFlashcardBattleInput
