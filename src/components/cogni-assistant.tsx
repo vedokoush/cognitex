@@ -78,7 +78,7 @@ export default function CogniAssistant() {
         <Button
           variant="default"
           size="icon"
-          className="fixed bottom-6 right-6 h-16 w-16 rounded-full shadow-lg z-50 animate-bounce"
+          className="fixed bottom-6 right-6 h-16 w-16 rounded-full shadow-lg z-50"
         >
           <Sparkles className="h-8 w-8" />
           <span className="sr-only">Mở Trợ lý Cogni</span>
